@@ -1,0 +1,16 @@
+---
+- name: Install and conf Apache2
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: Installer Apache2
+      apt:
+        name: apache2
+
+    - name: Démarrer Apache 
+      service:
+        name: apache2
+        state: started
+        enable: true
+
