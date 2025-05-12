@@ -1,0 +1,17 @@
+---
+- name: Installer et configurer apache2
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: Install apache2
+      ansible.builtin.apt:
+        name: apache2
+        update_cache: true
+        state: present
+
+    - name: Démarrer apache2
+      ansible.builtin.service:
+        name: apache2
+        state: started
+        enabled: true
